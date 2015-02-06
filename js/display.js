@@ -1,106 +1,5 @@
-function beer(){
-	if(page_order.indexOf('beer') > page_order.indexOf(window.location.hash.substring(1, window.location.hash.length))){out_direction = 'left'; in_direction = 'right';}
-	else{out_direction = 'right'; in_direction = 'left';}
-	$.when($('#content').hide('slide', {direction: out_direction}, 500)).done(function(){
-		$('#content').html("<center><h1>&nbsp</h1></center>"+
-		"<div id='menu' style='padding-left: 50px; margin-top: -50px;'>"+
-		"<img src='img/beer1.png' title='' style='padding-top: 15px;'/>"+
-		"<img src='img/beer2.png' title='' style='padding-top: 15px;'/>"+
-		"<img src='img/beer3.png' title='' style='padding-top: 15px;'/>"+
-		"<img src='img/beer4.png' title='' style='padding-top: 15px;'/>"+
-		"<img src='img/beer5.png' title='' style='padding-top: 15px;'/>"+
-		"</div>");
-		var dockOptions = { align: 'left' , size: 60};
-		$('#menu').jqDock(dockOptions);
-		$('#content').show('slide', {direction: in_direction}, 500);
-		
-	});
-}
-
-function brewery(){
-	if(page_order.indexOf('brewery') > page_order.indexOf(window.location.hash.substring(1, window.location.hash.length))){out_direction = 'left'; in_direction = 'right';}
-	else{out_direction = 'right'; in_direction = 'left';}
-	$.when($('#content').hide('slide', {direction: out_direction}, 500)).done(function(){
-		$('#content').html("<center><h1>&nbsp</h1>"+
-		"<div class='post'><center><br>Under construction<br><br></div></center>");
-		$('#content').show('slide', {direction: in_direction}, 500);
-	});
-}
-
-function tap(){
-	if(page_order.indexOf('tap') > page_order.indexOf(window.location.hash.substring(1, window.location.hash.length))){out_direction = 'left'; in_direction = 'right';}
-	else{out_direction = 'right'; in_direction = 'left';}
-	$.when($('#content').hide('slide', {direction: out_direction}, 500)).done(function(){
-		$('#content').html("<center><h1>The Taproom</h1></center>");
-		$('#content').show('slide', {direction: in_direction}, 500);
-	});
-}
-
-function brew(){
-	if(page_order.indexOf('brew') > page_order.indexOf(window.location.hash.substring(1, window.location.hash.length))){out_direction = 'left'; in_direction = 'right';}
-	else{out_direction = 'right'; in_direction = 'left';}
-	$.when($('#content').hide('slide', {direction: out_direction}, 500)).done(function(){
-		$('#content').html("<center><h1>Where It's Made</h1></center>");
-		$('#content').show('slide', {direction: in_direction}, 500);
-	});
-}
-
-function office(){
-	if(page_order.indexOf('office') > page_order.indexOf(window.location.hash.substring(1, window.location.hash.length))){out_direction = 'left'; in_direction = 'right';}
-	else{out_direction = 'right'; in_direction = 'left';}
-	$.when($('#content').hide('slide', {direction: out_direction}, 500)).done(function(){
-		$('#content').html("<center><h1>The Office</h1></center>");
-		$('#content').show('slide', {direction: in_direction}, 500);
-	});
-}
-
-function about(){
-	if(page_order.indexOf('about') > page_order.indexOf(window.location.hash.substring(1, window.location.hash.length))){out_direction = 'left'; in_direction = 'right';}
-	else{out_direction = 'right'; in_direction = 'left';}
-	$.when($('#content').hide('slide', {direction: out_direction}, 500)).done(function(){
-		$('#content').html("<center><h1>About</h1></center>");
-		$('#content').show('slide', {direction: in_direction}, 500);
-	});
-}
-
-function story(){
-	if(page_order.indexOf('story') > page_order.indexOf(window.location.hash.substring(1, window.location.hash.length))){out_direction = 'left'; in_direction = 'right';}
-	else{out_direction = 'right'; in_direction = 'left';}
-	$.when($('#content').hide('slide', {direction: out_direction}, 500)).done(function(){
-		$('#content').html("<center><h1>Story</h1></center>");
-		$('#content').show('slide', {direction: in_direction}, 500);
-	});
-}
-
-function mission(){
-	if(page_order.indexOf('mission') > page_order.indexOf(window.location.hash.substring(1, window.location.hash.length))){out_direction = 'left'; in_direction = 'right';}
-	else{out_direction = 'right'; in_direction = 'left';}
-	$.when($('#content').hide('slide', {direction: out_direction}, 500)).done(function(){
-		$('#content').html("<center><h1>Our Mission</h1></center>");
-		$('#content').show('slide', {direction: in_direction}, 500);
-	});
-}
-
-function staff(){
-	if(page_order.indexOf('staff') > page_order.indexOf(window.location.hash.substring(1, window.location.hash.length))){out_direction = 'left'; in_direction = 'right';}
-	else{out_direction = 'right'; in_direction = 'left';}
-	$.when($('#content').hide('slide', {direction: out_direction}, 500)).done(function(){
-		$('#content').html("<center><h1>Staff</h1></center>");
-		$('#content').show('slide', {direction: in_direction}, 500);
-	});
-}
-
-function contact(){
-	if(page_order.indexOf('contact') > page_order.indexOf(window.location.hash.substring(1, window.location.hash.length))){out_direction = 'left'; in_direction = 'right';}
-	else{out_direction = 'right'; in_direction = 'left';}
-	$.when($('#content').hide('slide', {direction: out_direction}, 500)).done(function(){
-		$('#content').html("<center><h1>Contact</h1></center>");
-		$('#content').show('slide', {direction: in_direction}, 500);
-	});
-}
-
 /////////////////////////////
-////////BLOG FUNCTIONS///////
+////////MAIN FUNCTIONS///////
 /////////////////////////////
 
 function main(){
@@ -154,11 +53,26 @@ function main(){
 	});
 }
 
+var post_progress_interval;
+
 function post_new(){
 	$('#new_post').dialog({ title: "New Post", width: 650, buttons: { "Cancel": function() {$(this).dialog("close");}, "OK": function() {
 		$('#blog').prepend('<div class="post"><center><img src="img/embed/loading2.gif" style="margin: 30px; height: 249px; width: 249px;"/></center></div>');
 		$('#form_post').submit();
+		$.cookie('post_progress', 0, {expires: 365}); 
+    	$( "#progressbar" ).progressbar({value: 0});
+		$('#dialog').dialog({ title: "Progress", width: 600});
+		post_progress_interval = setInterval(post_progress,1000);
 	}}});
+}
+
+function post_progress(){
+	$.ajax({ type: 'POST', url: 'php/api.php', data: "type=progress", dataType: 'json', success: function(data){
+		var progress = parseInt(data[0]['progress_upload']);
+		console.log(progress);
+    	$( "#progressbar" ).progressbar({value: progress});
+		if(progress == 100){clearInterval(post_progress_interval); $('#dialog').dialog("close");}
+	}});
 }
 
 function post_edit(blog_key){
@@ -176,7 +90,7 @@ function post_delete(blog_key){
 	if(admin){
 		$('#delete').dialog({ title: "Delete", width: 400, buttons: { "Cancel": function() {$(this).dialog("close");}, "OK": function() {
 			$.ajax({ type: 'POST', url: 'php/api.php', data: "type=delete&blog_key="+blog_key, dataType: 'json', success: function(data){
-				blog();
+				main();
 			}});
 			$(this).dialog("close");
 		}}});
@@ -186,7 +100,7 @@ function post_delete(blog_key){
 function post_pin(blog_key){
 	if(admin){
 		$.ajax({ type: 'POST', url: 'php/api.php', data: "type=pin&blog_key="+blog_key, dataType: 'json', success: function(data){
-			blog();
+			main();
 		}});
 	}
 }
@@ -194,21 +108,164 @@ function post_pin(blog_key){
 function post_facebook(blog_key){
 	console.log(location.href.split('?')[0].split('#')[0]+'?p='+blog_key+'#blog');
 	window.open(
-	  'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href.split('?')[0].split('#')[0]+'?p='+blog_key+'#blog'),
+	  'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href.split('?')[0].split('#')[0]+'?p='+blog_key+'#main'),
 	  'facebook-share-dialog', 
 	  'width=626,height=436'); 
 	return false;
 }
 
 /////////////////////////////
-///////EVENTS FUNCTIONS//////
+////////ABOUT FUNCTIONS//////
 /////////////////////////////
 
-function events(){
-	if(page_order.indexOf('events') > page_order.indexOf(window.location.hash.substring(1, window.location.hash.length))){out_direction = 'left'; in_direction = 'right';}
+function about(){
+	if(page_order.indexOf('about') > page_order.indexOf(window.location.hash.substring(1, window.location.hash.length))){out_direction = 'left'; in_direction = 'right';}
 	else{out_direction = 'right'; in_direction = 'left';}
 	$.when($('#content').hide('slide', {direction: out_direction}, 500)).done(function(){
-		$('#content').html("<center><h1>Events</h1></center>");
+		$('#content').html("<center><h1>&nbsp</h1>"+
+		"<div class='post'><center><br>Under construction<br><br></div></center>");
+		$('#content').show('slide', {direction: in_direction}, 500);
+	});
+}
+
+function us(){
+	if(page_order.indexOf('us') > page_order.indexOf(window.location.hash.substring(1, window.location.hash.length))){out_direction = 'left'; in_direction = 'right';}
+	else{out_direction = 'right'; in_direction = 'left';}
+	$.when($('#content').hide('slide', {direction: out_direction}, 500)).done(function(){
+		$('#content').html("<center><h1>&nbsp</h1>"+
+		"<div class='post'><center><br>Under construction<br><br></div></center>");
+		$('#content').show('slide', {direction: in_direction}, 500);
+	});
+}
+
+function party(){
+	if(page_order.indexOf('party') > page_order.indexOf(window.location.hash.substring(1, window.location.hash.length))){out_direction = 'left'; in_direction = 'right';}
+	else{out_direction = 'right'; in_direction = 'left';}
+	$.when($('#content').hide('slide', {direction: out_direction}, 500)).done(function(){
+		$('#content').html("<center><h1>&nbsp</h1>"+
+		"<div class='post'><center><br>Under construction<br><br></div></center>");
+		$('#content').show('slide', {direction: in_direction}, 500);
+	});
+}
+
+/////////////////////////////
+//////WEDDING FUNCTIONS//////
+/////////////////////////////
+
+function wedding(){
+	if(page_order.indexOf('wedding') > page_order.indexOf(window.location.hash.substring(1, window.location.hash.length))){out_direction = 'left'; in_direction = 'right';}
+	else{out_direction = 'right'; in_direction = 'left';}
+	$.when($('#content').hide('slide', {direction: out_direction}, 500)).done(function(){
+		$('#content').html("<center><h1>&nbsp</h1>"+
+		"<div class='post'><center><br>Under construction<br><br></div></center>");
+		$('#content').show('slide', {direction: in_direction}, 500);
+	});
+}
+
+function place(){
+	if(page_order.indexOf('place') > page_order.indexOf(window.location.hash.substring(1, window.location.hash.length))){out_direction = 'left'; in_direction = 'right';}
+	else{out_direction = 'right'; in_direction = 'left';}
+	$.when($('#content').hide('slide', {direction: out_direction}, 500)).done(function(){
+		$('#content').html("<center><h1>&nbsp</h1>"+
+		"<div class='post'><center><br>Under construction<br><br></div></center>");
+		$('#content').show('slide', {direction: in_direction}, 500);
+	});
+}
+
+function food(){
+	if(page_order.indexOf('food') > page_order.indexOf(window.location.hash.substring(1, window.location.hash.length))){out_direction = 'left'; in_direction = 'right';}
+	else{out_direction = 'right'; in_direction = 'left';}
+	$.when($('#content').hide('slide', {direction: out_direction}, 500)).done(function(){
+		$('#content').html("<center><h1>&nbsp</h1>"+
+		"<div class='post'><center><br>Under construction<br><br></div></center>");
+		$('#content').show('slide', {direction: in_direction}, 500);
+	});
+}
+
+function dress(){
+	if(page_order.indexOf('dress') > page_order.indexOf(window.location.hash.substring(1, window.location.hash.length))){out_direction = 'left'; in_direction = 'right';}
+	else{out_direction = 'right'; in_direction = 'left';}
+	$.when($('#content').hide('slide', {direction: out_direction}, 500)).done(function(){
+		$('#content').html("<center><h1>&nbsp</h1>"+
+		"<div class='post'><center><br>Under construction<br><br></div></center>");
+		$('#content').show('slide', {direction: in_direction}, 500);
+	});
+}
+
+function registry(){
+	if(page_order.indexOf('registry') > page_order.indexOf(window.location.hash.substring(1, window.location.hash.length))){out_direction = 'left'; in_direction = 'right';}
+	else{out_direction = 'right'; in_direction = 'left';}
+	$.when($('#content').hide('slide', {direction: out_direction}, 500)).done(function(){
+		$('#content').html("<center><h1>&nbsp</h1>"+
+		"<div class='post'><center><br>Under construction<br><br></div></center>");
+		$('#content').show('slide', {direction: in_direction}, 500);
+	});
+}
+
+function nokids(){
+	if(page_order.indexOf('nokids') > page_order.indexOf(window.location.hash.substring(1, window.location.hash.length))){out_direction = 'left'; in_direction = 'right';}
+	else{out_direction = 'right'; in_direction = 'left';}
+	$.when($('#content').hide('slide', {direction: out_direction}, 500)).done(function(){
+		$('#content').html("<center><h1>&nbsp</h1>"+
+		"<div class='post'><center><br>Under construction<br><br></div></center>");
+		$('#content').show('slide', {direction: in_direction}, 500);
+	});
+}
+
+/////////////////////////////
+////////MAIN FUNCTIONS///////
+/////////////////////////////
+
+function area(){
+	if(page_order.indexOf('area') > page_order.indexOf(window.location.hash.substring(1, window.location.hash.length))){out_direction = 'left'; in_direction = 'right';}
+	else{out_direction = 'right'; in_direction = 'left';}
+	$.when($('#content').hide('slide', {direction: out_direction}, 500)).done(function(){
+		$('#content').html("<center><h1>&nbsp</h1>"+
+		"<div class='post'><center><br>Under construction<br><br></div></center>");
+		$('#content').show('slide', {direction: in_direction}, 500);
+	});
+}
+
+function todo(){
+	if(page_order.indexOf('todo') > page_order.indexOf(window.location.hash.substring(1, window.location.hash.length))){out_direction = 'left'; in_direction = 'right';}
+	else{out_direction = 'right'; in_direction = 'left';}
+	$.when($('#content').hide('slide', {direction: out_direction}, 500)).done(function(){
+		$('#content').html("<center><h1>&nbsp</h1>"+
+		"<div class='post'><center><br>Under construction<br><br></div></center>");
+		$('#content').show('slide', {direction: in_direction}, 500);
+	});
+}
+
+function hotels(){
+	if(page_order.indexOf('hotels') > page_order.indexOf(window.location.hash.substring(1, window.location.hash.length))){out_direction = 'left'; in_direction = 'right';}
+	else{out_direction = 'right'; in_direction = 'left';}
+	$.when($('#content').hide('slide', {direction: out_direction}, 500)).done(function(){
+		$('#content').html("<center><h1>&nbsp</h1>"+
+		"<div class='post'><center><br>Under construction<br><br></div></center>");
+		$('#content').show('slide', {direction: in_direction}, 500);
+	});
+}
+
+/////////////////////////////
+//////PICTURES FUNCTIONS/////
+/////////////////////////////
+
+function pictures(){
+	if(page_order.indexOf('pictures') > page_order.indexOf(window.location.hash.substring(1, window.location.hash.length))){out_direction = 'left'; in_direction = 'right';}
+	else{out_direction = 'right'; in_direction = 'left';}
+	$.when($('#content').hide('slide', {direction: out_direction}, 500)).done(function(){
+		$('#content').html("<center><h1>&nbsp</h1>"+
+		"<div class='post'><center><br>Under construction<br><br></div></center>");
+		$('#content').show('slide', {direction: in_direction}, 500);
+	});
+}
+
+function meme(){
+	if(page_order.indexOf('meme') > page_order.indexOf(window.location.hash.substring(1, window.location.hash.length))){out_direction = 'left'; in_direction = 'right';}
+	else{out_direction = 'right'; in_direction = 'left';}
+	$.when($('#content').hide('slide', {direction: out_direction}, 500)).done(function(){
+		$('#content').html("<center><h1>&nbsp</h1>"+
+		"<div class='post'><center><br>Under construction<br><br></div></center>");
 		$('#content').show('slide', {direction: in_direction}, 500);
 	});
 }

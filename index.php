@@ -31,10 +31,10 @@
 	<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
 	<link rel="stylesheet" type="text/css" href="css/embed/lightbox.css">
 	<link rel="stylesheet" type="text/css" href="css/embed/jquery.contextMenu.css">
-	<link rel="stylesheet" type="text/css" href="css/embed/jquery-ui.min.css">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 	<link rel="stylesheet" type="text/css" href="css/embed/jquery-te-1.4.0.css">
 	<script src="js/embed/jquery-1.11.0.min.js"></script>
-	<script src="js/embed/jquery-ui.min.js"></script>
+	<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 	<script src="js/embed/jquery.contextMenu.js"></script>
 	<script src="js/embed/jquery.form.min.js"></script>
 	<script src="js/embed/jquery.jqDock.min.js"></script>
@@ -121,7 +121,7 @@
                 </li>
                 <li><a href="#wedding" onclick="wedding()">The Wedding</a>
                     <ul>
-                    <li><a href="#location" onclick="location()">Where and When</a></li>
+                    <li><a href="#place" onclick="place()">Where and When</a></li>
                     <li><a href="#food" onclick="food()">Food Stuffs</a></li>
                     <li><a href="#dress" onclick="dress()">Dress Code</a></li>
                 	<li><a href="#registry" onclick="registry()">Registry</a></li>
@@ -144,6 +144,7 @@
         <div id="content">
         </div>
     </div>
+    <div id="dialog"><div id="progressbar"></div></div>
     <div id="footer"></div>
     <div id="left"></div>
     <div id="right"></div>

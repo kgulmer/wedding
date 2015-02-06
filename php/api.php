@@ -95,7 +95,24 @@ elseif($_POST['type'] == 'pin'){
 	echo json_encode(true);
 }
 
+
+elseif($_POST['type'] == 'progress'){
+	$order = "SELECT progress_upload FROM progress";
+	$result = mysql_query($order, $db1);
+	while($row = mysql_fetch_assoc($result)){$data[] = $row;}
+	
+	if($data[0]['progress_upload'] == 100){
+		$order = "UPDATE progress SET `progress_upload`=0";
+		mysql_query($order, $db1);		
+	}
+	
+	echo json_encode($data);
+}
+
 elseif($_POST['type'] == 'post'){
+	
+	$order = "UPDATE progress SET `progress_upload`=0";
+	mysql_query($order, $db1);
 	
 	//check for images and create thumbnails as necessary
 	$filename = $_FILES['post_images']['name'];
@@ -112,6 +129,10 @@ elseif($_POST['type'] == 'post'){
 		$len = count($filename);
 		$images = '';
 		for($i=0; $i<$len; $i++) {
+			
+			$order = "UPDATE progress SET `progress_upload`=".(100*$i/$len);
+			mysql_query($order, $db1);
+			
 			move_uploaded_file($_FILES['post_images']['tmp_name'][$i],$upload_path.($current+$i).".".pathinfo($filename[$i],PATHINFO_EXTENSION));
 			$images .= ($current+$i).".".pathinfo($filename[$i],PATHINFO_EXTENSION).",";
 			$thumb = preg_replace('/\\.[^.\\s]{3,4}$/', '', ($current+$i));
@@ -136,11 +157,11 @@ elseif($_POST['type'] == 'post'){
 	
 	$order = "INSERT INTO blog (blog_title, blog_text, blog_images, blog_timestamp, blog_user_key) VALUES ('".$title."','".$text."',".$images.",now(),".$user_key.")";
 	mysql_query($order, $db1);
+	
+	$order = "UPDATE progress SET `progress_upload`=100";
+	mysql_query($order, $db1);
+	
 	echo json_encode(true);
-}
-
-else{
-	echo 'test';
 }
 
 ?>

@@ -25,28 +25,6 @@ $(document).ready(function (e){
 				login_check(username, password, data);}
 		}});
 	}
-
-	//age validation
-	/*
-	var age_check = sessionStorage['age_check'];
-	if(!age_check){
-		$('#age').val(moment(Date.now()).format('MM/DD/YYYY'));
-		$('#age').combodate();
-		$('#form_age_gate').draggable();
-		$('#age_check').click(function(){
-			var age = moment().diff($('#age').val(),'days')/365;
-			if(age > 21){$('#age_gate').fadeOut(); sessionStorage['age_check'] = "yes";}
-			else{$('#age_gate_text').html('<br><br>You are '+Math.round(100*age)/100+' years old. Too young for this site.');}
-		});
-		$('#age_yes').click(function(){
-			$('#age_gate').fadeOut(); sessionStorage['age_check'] = "yes";
-		});
-		$('#age_no').click(function(){
-			$('#age_gate_text').html('<br><br>You are too young for this site.');
-		});
-	}
-	else{$('#age_gate').hide();}
-	*/
 	
 	//turns all textarea into formattable text area
 	$("textarea").jqte({p: false});
