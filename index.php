@@ -51,19 +51,6 @@
 </head>
 
 <body>
-    <div id="fb-root"></div>
-	<script>
-		(
-			function(d, s, id) {
-			var js, fjs = d.getElementsByTagName(s)[0]; 
-			if (d.getElementById(id)) return; 
-			js = d.createElement(s); js.id = id; 
-			js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0"; 
-			fjs.parentNode.insertBefore(js, fjs);
-			}
-			(document, 'script', 'facebook-jssdk')
-		);
-    </script>
     <div id="login" style="display: none;">
         <form id="form_login">
             <table>
@@ -125,24 +112,33 @@
             <a href="#nav" title="Show navigation" style="position: fixed; bottom: 0;"><img src="img/menu.png" height="50px" width="50px" /></a>
             <a href="#" title="Hide navigation" style="position: fixed; bottom: 0;"><img src="img/menu.png" height="50px" width="50px" /></a>
             <ul>
-                <li><a href="#beer" onclick="beer()">Our Beer</a></li>
-                <li><a href="#brewery" onclick="brewery()">The Brewery</a>
-                    <ul>
-                    <li><a href="#tap" onclick="tap()">Tap Room</a></li>
-                    <li><a href="#brew" onclick="brew()">Where It's Made</a></li>
-                    <li><a href="#office" onclick="office()">Office</a></li>
-                    </ul>
-                </li>
+                <li><a href="#main" onclick="main()">Home</a></li>
                 <li><a href="#about" onclick="about()">About</a>
                     <ul>
-                    <li><a href="#story" onclick="story()">Our Story</a></li>
-                    <li><a href="#mission" onclick="mission()">Our Mission</a></li>
-                    <li><a href="#staff" onclick="staff()">The Staff</a></li>
-                    <li><a href="#contact" onclick="contact()">Contact Us</a></li>
+                    <li><a href="#us" onclick="us()">Hannah and Kyle</a></li>
+                    <li><a href="#party" onclick="party()">Wedding Party</a></li>
                     </ul>
                 </li>
-                <li><a href="#blog" onclick="blog()">Blog</a></li>
-                <li><a href="#events" onclick="events()">Events</a></li>
+                <li><a href="#wedding" onclick="wedding()">The Wedding</a>
+                    <ul>
+                    <li><a href="#location" onclick="location()">Where and When</a></li>
+                    <li><a href="#food" onclick="food()">Food Stuffs</a></li>
+                    <li><a href="#dress" onclick="dress()">Dress Code</a></li>
+                	<li><a href="#registry" onclick="registry()">Registry</a></li>
+                    <li><a href="#nokids" onclick="nokids()">No Children</a></li>
+                    </ul>
+                </li>
+                <li><a href="#area" onclick="area()">The Area</a>
+                    <ul>
+                    <li><a href="#todo" onclick="todo()">Things to Do</a></li>
+                    <li><a href="#hotels" onclick="hotels()">Hotels</a></li>
+                    </ul>
+                </li>
+                <li><a href="#pictures" onclick="pictures()">Pictures</a>
+                    <ul>
+                    <li><a href="#meme" onclick="meme()">Meme Generator</a></li>
+                    </ul>
+                </li>
             </ul>
         </nav>
         <div id="content">

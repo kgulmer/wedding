@@ -103,7 +103,7 @@ function contact(){
 ////////BLOG FUNCTIONS///////
 /////////////////////////////
 
-function blog(){
+function main(){
 	
 	if(page_order.indexOf('blog') > page_order.indexOf(window.location.hash.substring(1, window.location.hash.length))){out_direction = 'left'; in_direction = 'right';}
 	else{out_direction = 'right'; in_direction = 'left';}

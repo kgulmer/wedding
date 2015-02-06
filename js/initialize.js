@@ -70,7 +70,7 @@ $(document).ready(function (e){
 		$(this).closest(".ui-dialog-content").dialog("close");
 		e.preventDefault();
 		$.ajax({url: "php/api.php", type: "POST", data:  new FormData(this), contentType: false, cache: false, processData:false, dataType: 'json', success: function(data){
-				blog();
+				main();
 		}});
 	}));
 	
@@ -80,7 +80,7 @@ $(document).ready(function (e){
 		e.preventDefault();
 		$.ajax({url: "php/api.php", type: "POST", data:  new FormData(this), contentType: false, cache: false, processData:false, dataType: 'json', success: function(data){
 			console.log(data);
-				blog();
+				main();
 		}});
 	}));
 	
@@ -91,7 +91,7 @@ $(document).ready(function (e){
 		if($('#password_old').val() == '' || md5($('#password_old').val()) == password){
 			$.ajax({url: "php/api.php", type: "POST", data:  new FormData(this), contentType: false, cache: false, processData:false, dataType: 'json', success: function(data){
 					if(md5($('#password_old').val()) == password){login();}
-					blog();
+					main();
 			}});
 		}
 		else{alert('Wrong password');}

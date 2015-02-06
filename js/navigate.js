@@ -9,6 +9,6 @@ if(hash != ''){
 	window[func]();
 }
 else{
-	blog();
-	window.location.hash = '#blog';
+	main();
+	window.location.hash = '#main';
 }

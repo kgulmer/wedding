@@ -139,4 +139,8 @@ elseif($_POST['type'] == 'post'){
 	echo json_encode(true);
 }
 
+else{
+	echo 'test';
+}
+
 ?>
